@@ -39,7 +39,7 @@ async def main():
             # Build the message with simulated telemetry values.
             temperature = TEMPERATURE + (random.random() * 15)
             humidity = HUMIDITY + (random.random() * 20)
-            msg_txt_formatted = "{'status':'error','message':Error retrieving data'}"
+            msg_txt_formatted = "{'status':'error','message':'Error retrieving data'}"
             message = Message(msg_txt_formatted)
 
             # Add standard message properties
