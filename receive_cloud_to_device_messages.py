@@ -30,7 +30,11 @@ Usage:
 import os
 import asyncio
 from azure.iot.device.aio import IoTHubDeviceClient
+from dotenv import load_dotenv
 
+
+# Charger les variables d'environnement du fichier .env
+load_dotenv()
 
 async def receive_messages_from_cloud(device_client):
     """
