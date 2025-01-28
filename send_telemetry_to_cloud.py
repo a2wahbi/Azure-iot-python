@@ -1,3 +1,26 @@
+"""
+File: send_telemetry_to_cloud.py
+Description: This script simulates an IoT device sending periodic telemetry data (e.g., temperature, humidity) to Azure IoT Hub using MQTT protocol.
+Author: Wahbi   
+Date: 27/01/2025
+
+Key Features:
+- Authenticates the IoT device using the device connection string stored in an environment variable.
+- Sends telemetry data (temperature, humidity) in JSON format to Azure IoT Hub.
+- Adds custom properties (e.g., `temperatureAlert`) to the message for filtering or alerting purposes.
+- Implements a loop to send telemetry messages periodically (every second).
+
+Requirements:
+- Install the `azure-iot-device` library using `pip install azure-iot-device`.
+- Python 3.6+ is required.
+- A valid IoT device connection string set in the environment variable `IOTHUB_DEVICE_CONNECTION_STRING`.
+
+Usage:
+- Ensure the IoT Hub is configured, and the device is registered to receive messages.
+"""
+
+
+
 # Copyright (c) Microsoft. All rights reserved.
 # Licensed under the MIT license. See LICENSE file in the project root for full license information.
 

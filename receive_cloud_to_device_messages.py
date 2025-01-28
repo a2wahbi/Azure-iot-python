@@ -1,3 +1,32 @@
+"""
+File: receive_cloud_to_device_messages.py
+Description: This script listens for Cloud-to-Device (C2D) messages from Azure IoT Hub using the IoTHubDeviceClient class. 
+It is designed to simulate an IoT device that receives commands or notifications sent by the cloud.
+
+Author: Wahbi
+Date: 28/01/2025
+
+Key Features:
+- Connects to Azure IoT Hub using a device connection string stored in the environment variable `IOTHUB_DEVICE_CONNECTION_STRING`.
+- Listens continuously for Cloud-to-Device (C2D) messages from the IoT Hub.
+- Decodes and displays the message content and custom properties in the console.
+- Allows the user to terminate the message listening process by typing "Q" in the console.
+- Implements proper resource management by shutting down the IoT client gracefully.
+
+Requirements:
+- Install the `azure-iot-device` library using `pip install azure-iot-device`.
+- Python 3.6+ is required.
+- Set the IoT device connection string in the environment variable `IOTHUB_DEVICE_CONNECTION_STRING`.
+
+Usage:
+1. Ensure that the Azure IoT Hub is set up and the IoT device is registered to receive messages.
+2. Set the device connection string in the `IOTHUB_DEVICE_CONNECTION_STRING` environment variable.
+3. Run the script: `python receive_cloud_to_device_messages.py`.
+4. Send a Cloud-to-Device (C2D) message from Azure IoT Hub to the registered device to test the functionality.
+5. Press "Q" to stop the script and disconnect the IoT client.
+"""
+
+
 import os
 import asyncio
 from azure.iot.device.aio import IoTHubDeviceClient
