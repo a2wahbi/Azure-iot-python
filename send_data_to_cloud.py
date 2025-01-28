@@ -4,7 +4,8 @@
 import asyncio
 import random
 import uuid
-
+import os
+from dotenv import load_dotenv
 # Using the Python Device SDK for IoT Hub:
 #   https://github.com/Azure/azure-iot-sdk-python
 #   Run 'pip install azure-iot-device' to install the required libraries for this application
@@ -14,8 +15,13 @@ import uuid
 from azure.iot.device.aio import IoTHubDeviceClient
 from azure.iot.device import Message
 
+
+# Charger les variables d'environnement du fichier .env
+load_dotenv()
+
 # The device connection string to authenticate the device with your IoT hub.
-CONNECTION_STRING = "HostName=exchangeDataWithVscode-Iothub.azure-devices.net;DeviceId=iotdev1;SharedAccessKey=JCAroQ07+ObUlnvcmAs3QoD10cN8zIS4emQ/GtPu4vU="
+CONNECTION_STRING = os.getenv("IOTHUB_DEVICE_CONNECTION_STRING")
+
 
 MESSAGE_TIMEOUT = 10000
 
@@ -39,7 +45,7 @@ async def main():
             # Build the message with simulated telemetry values.
             temperature = TEMPERATURE + (random.random() * 15)
             humidity = HUMIDITY + (random.random() * 20)
-            msg_txt_formatted = "{'status':'error','message':'Error retrieving data'}"
+            msg_txt_formatted = "{'status':'success','message':'Success retrieving data'}"
             message = Message(msg_txt_formatted)
 
             # Add standard message properties
